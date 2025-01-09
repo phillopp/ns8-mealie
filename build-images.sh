@@ -13,22 +13,22 @@ images=()
 # The image will be pushed to GitHub container registry
 repobase="${REPOBASE:-ghcr.io/nethserver}"
 # Configure the image name
-reponame="kickstart"
+reponame="mealie"
 
 # Create a new empty container image
 container=$(buildah from scratch)
 
-# Reuse existing nodebuilder-kickstart container, to speed up builds
-if ! buildah containers --format "{{.ContainerName}}" | grep -q nodebuilder-kickstart; then
+# Reuse existing nodebuilder-mealie container, to speed up builds
+if ! buildah containers --format "{{.ContainerName}}" | grep -q nodebuilder-mealie; then
     echo "Pulling NodeJS runtime..."
-    buildah from --name nodebuilder-kickstart -v "${PWD}:/usr/src:Z" docker.io/library/node:lts
+    buildah from --name nodebuilder-mealie -v "${PWD}:/usr/src:Z" docker.io/library/node:lts
 fi
 
 echo "Build static UI files with node..."
 buildah run \
     --workingdir=/usr/src/ui \
     --env="NODE_OPTIONS=--openssl-legacy-provider" \
-    nodebuilder-kickstart \
+    nodebuilder-mealie \
     sh -c "yarn install && yarn build"
 
 # Add imageroot directory to the container image
@@ -45,7 +45,7 @@ buildah config --entrypoint=/ \
     --label="org.nethserver.authorizations=traefik@node:routeadm" \
     --label="org.nethserver.tcp-ports-demand=1" \
     --label="org.nethserver.rootfull=0" \
-    --label="org.nethserver.images=docker.io/postgres:15.8-alpine3.19 docker.io/nginx:1.27.1-alpine3.20" \
+    --label="org.nethserver.images=docker.io/postgres:15.8-alpine3.19 ghcr.io/mealie-recipes/mealie:v2.4.2" \
     "${container}"
 # Commit the image
 buildah commit "${container}" "${repobase}/${reponame}"

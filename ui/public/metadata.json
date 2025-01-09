@@ -1,19 +1,19 @@
 {
-  "name": "kickstart",
+  "name": "mealie",
   "description": {
-    "en": "My kickstart module"
+    "en": "Mealie Integration for NethServer 8"
   },
   "categories": [],
   "authors": [
     {
-      "name": "Name Surname",
-      "email": "author@yourmail.org"
+      "name": "Philip Falliano",
+      "email": "philip.falliano@phillopp.de"
     }
   ],
   "docs": {
-    "documentation_url": "https://docs.kickstart.com/",
-    "bug_url": "https://github.com/NethServer/dev",
-    "code_url": "https://github.com/author/ns8-kickstart"
+    "documentation_url": "https://docs.mealie.io/",
+    "bug_url": "https://github.com/phillopp/ns8-mealie/issues",
+    "code_url": "https://github.com/phillopp/ns8-mealie"
   },
-  "source": "ghcr.io/nethserver/kickstart"
+  "source": "ghcr.io/phillopp/mealie"
 }
