@@ -81,6 +81,22 @@
                       ref="theming.light.primary"
                   >
                   </cv-text-input>
+
+                  <p>
+                    <strong>
+                      {{ $t('settings.theming') }} {{ $t('settings.theming-dark') }}
+                    </strong>
+                  </p>
+                  <cv-text-input
+                      :label="$t('settings.theming-colors.primary')"
+                      placeholder="#121212"
+                      v-model.trim="theming.dark.primary"
+                      class="mg-bottom"
+                      :invalid-message="$t(error.theming.dark.primary)"
+                      :disabled="loading.getConfiguration || loading.configureModule"
+                      ref="theming.dark.primary"
+                  >
+                  </cv-text-input>
                 </template>
               </cv-accordion-item>
             </cv-accordion>
@@ -148,6 +164,9 @@ export default {
         light: {
           primary: ""
         },
+        dark: {
+          primary: ""
+        }
       },
       error: {
         getConfiguration: "",
@@ -159,6 +178,9 @@ export default {
           light: {
             primary: ""
           },
+          dark: {
+            primary: ""
+          }
         },
       },
     };
@@ -228,6 +250,7 @@ export default {
       this.isLetsEncryptEnabled = config.lets_encrypt;
       this.isHttpToHttpsEnabled = config.http2https;
       this.theming.light.primary = config.theming.light.primary;
+      this.theming.dark.primary = config.theming.dark.primary;
 
       this.loading.getConfiguration = false;
       this.focusElement("host");
@@ -300,6 +323,9 @@ export default {
             theming: {
               light: {
                 primary: this.theming.light.primary
+              },
+              dark: {
+                primary: this.theming.dark.primary
               }
             }
           },

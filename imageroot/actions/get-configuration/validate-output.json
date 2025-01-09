@@ -40,6 +40,10 @@
                 "light": {
                     "type": "object",
                     "title": "Light mode"
+                },
+                "dark": {
+                    "type": "object",
+                    "title": "Dark mode"
                 }
             }
         }
