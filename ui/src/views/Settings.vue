@@ -66,6 +66,21 @@
               <cv-accordion-item :open="toggleAccordion[0]">
                 <template slot="title">{{ $t("settings.advanced") }}</template>
                 <template slot="content">
+                  <p>
+                    <strong>
+                      {{ $t('settings.theming') }} {{ $t('settings.theming-light') }}
+                    </strong>
+                  </p>
+                  <cv-text-input
+                      :label="$t('settings.theming-colors.primary')"
+                      placeholder="#121212"
+                      v-model.trim="theming.light.primary"
+                      class="mg-bottom"
+                      :invalid-message="$t(error.theming.light.primary)"
+                      :disabled="loading.getConfiguration || loading.configureModule"
+                      ref="theming.light.primary"
+                  >
+                  </cv-text-input>
                 </template>
               </cv-accordion-item>
             </cv-accordion>
@@ -129,12 +144,22 @@ export default {
         getConfiguration: false,
         configureModule: false,
       },
+      theming: {
+        light: {
+          primary: ""
+        },
+      },
       error: {
         getConfiguration: "",
         configureModule: "",
         host: "",
         lets_encrypt: "",
         http2https: "",
+        theming: {
+          light: {
+            primary: ""
+          },
+        },
       },
     };
   },
@@ -202,6 +227,7 @@ export default {
       this.host = config.host;
       this.isLetsEncryptEnabled = config.lets_encrypt;
       this.isHttpToHttpsEnabled = config.http2https;
+      this.theming.light.primary = config.theming.light.primary;
 
       this.loading.getConfiguration = false;
       this.focusElement("host");
@@ -271,6 +297,11 @@ export default {
             host: this.host,
             lets_encrypt: this.isLetsEncryptEnabled,
             http2https: this.isHttpToHttpsEnabled,
+            theming: {
+              light: {
+                primary: this.theming.light.primary
+              }
+            }
           },
           extra: {
             title: this.$t("settings.instance_configuration", {

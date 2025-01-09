@@ -31,6 +31,17 @@
             "type": "boolean",
             "title": "HTTP to HTTPS redirection",
             "description": "Redirect all the HTTP requests to HTTPS"
+        },
+        "theming": {
+            "type": "object",
+            "description": "Data for Theming.",
+            "title": "Theming",
+            "properties": {
+                "light": {
+                    "type": "object",
+                    "title": "Light mode"
+                }
+            }
         }
     }
 }

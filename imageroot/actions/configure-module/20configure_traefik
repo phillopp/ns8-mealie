@@ -26,6 +26,8 @@ agent.set_env("TRAEFIK_HOST", host)
 agent.set_env("TRAEFIK_HTTP2HTTPS", h2hs)
 agent.set_env("TRAEFIK_LETS_ENCRYPT", le)
 
+agent.set_env("BASE_URL", host)
+
 # Make sure everything is saved inside the environment file
 # just before starting systemd unit
 agent.dump_env()

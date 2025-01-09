@@ -1,57 +1,86 @@
 {
-    "error": {
-        "403": "Operation nicht zugelassen",
-        "cannot_retrieve_installed_modules": "installierte Module nicht abrufbar",
-        "401": "fehlerhafte Anmeldung",
-        "cannot_retrieve_module_info": "Modulinfo nicht abrufbar",
-        "generic_error": "Etwas ist schief gegangen",
-        "error": "Fehler",
-        "network_timeout": "Netzwerk Timeout",
-        "404": "Ressource nicht gefunden",
-        "network_error": "Netzwerkfehler",
-        "validation_error": "Fehlerhafte Prüfung"
-    },
-    "settings": {
-        "test_field": "Testfeld",
-        "configure_instance": "{instance} konfigurieren",
-        "save": "Speichern",
-        "title": "Einstellungen"
-    },
     "common": {
-        "required": "erforderlich",
-        "work_in_progress": "In Arbeit",
-        "processing": "Ausführung..."
+        "required": "Erforderlich",
+        "work_in_progress": "Work in progress",
+        "processing": "Verarbeiten..."
     },
     "status": {
-        "created": "erstellt",
-        "size": "Größe",
-        "name": "Name",
-        "no_images": "Keine Abbilder",
-        "app_volumes": "App Volumen | App Volumen",
-        "services": "Dienst | Dienste",
-        "app_images": "App-Abbild | App-Abbilder",
-        "no_services": "Keine Dienste",
-        "app_instance": "App-Instanz",
-        "mount": "Einbindepunkt",
         "title": "Status",
-        "installation_node": "Knoten der Installation",
-        "node": "Knoten",
-        "no_volumes": "keine Volumen"
+        "app_instance": "App Instanz",
+        "services": "Service | Services",
+        "app_images": "App Abbild | App Abbilder",
+        "app_volumes": "App Speicher | App Speicher",
+        "installation_node": "Installationsnode",
+        "node": "Node",
+        "name": "Name",
+        "size": "Größe",
+        "created": "Erstellt",
+        "mount": "Mount",
+        "no_services": "Keine Services",
+        "no_images": "Keine Abbilder",
+        "no_volumes": "Keine Laufwerke",
+        "mealie_webapp": "Mealie Webanwendung",
+        "not_configured": "Nicht konfiguriert",
+        "open_webapp": "Mealie öffnen",
+        "configure": "Konfigurieren"
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "configure_instance": "{instance} einstellen",
+        "save": "Speichern",
+        "mealie_fqdn": "Mealie Hostname (FQDN)",
+        "lets_encrypt": "LE Zertifikat anfordern",
+        "http_to_https": "HTTPS erzwingen",
+        "enabled": "Aktivieren",
+        "disabled": "Deaktivieren",
+        "advanced": "Erweitert",
+        "configuring": "Konfigurieren",
+        "instance_configuration": "Mealie konfigurieren",
+        "domain_already_used_in_traefik": "Domain bereits in Traefik benutzt",
+        "host_pattern": "Es muss ein gültiger Full Qualified Domain Name sein",
+        "host_format": "Es muss ein gültiger Full Qualified Domain Name sein",
+        "allow_signup": "Registrierung erlauben",
+        "timezone": "Zeitzone",
+        "theming": "Design",
+        "theming-dark": "Dunkelmodus",
+        "theming-light": "Hellmodus",
+        "theming-colors": {
+            "primary": "Primärfarbe",
+            "secondary": "Sekundärfarbe",
+            "accent": "Akzentfarbe",
+            "success": "Erfolgsfarbe",
+            "error": "Fehlerfarbe",
+            "info": "Infofarbe",
+            "warning": "Warnfarbe"
+        }
     },
     "about": {
         "title": "Über"
     },
-    "action": {
-        "list-backup-repositories": "Liste der Datensicherungs-Speicherort",
-        "get-module-info": "Informationen zum Modul abrufen",
-        "list-installed-modules": "installierte Module auflisten",
-        "list-backups": "Datensicherungen auflisten",
-        "get-status": "Status abfragen",
-        "configure-module": "Modul konfigurieren",
-        "get-configuration": "Konfiguration abrufen",
-        "get-name": "Name abrufen"
-    },
     "task": {
-        "cannot_create_task": "{task} kann nicht erstellt werden"
+        "cannot_create_task": "Aufgabe {action} kann nicht erstellt werden"
+    },
+    "action": {
+        "get-status": "Frage Status ab",
+        "get-configuration": "Hole Konfiguration",
+        "configure-module": "Konfiguriere Modul",
+        "get-module-info": "Hole Modul-Informationen",
+        "get-name": "Hole Namen",
+        "list-backup-repositories": "Liste Sicherung Repositorys auf",
+        "list-backups": "Liste Sicherungen auf",
+        "list-installed-modules": "Liste installierte Module auf"
+    },
+    "error": {
+        "error": "Fehler",
+        "generic_error": "Etwas ist schief gegangen",
+        "validation_error": "Validierungsfehler",
+        "network_error": "Netzwerkfehler",
+        "network_timeout": "Netzwerk nicht erreichbar",
+        "401": "Ungültige Authentifizierung",
+        "403": "Aktion nicht autorisiert",
+        "404": "Ressource nicht verfügbar",
+        "cannot_retrieve_module_info": "Kann Modul Informationen nicht abrufen",
+        "cannot_retrieve_installed_modules": "Kann installierte Module nicht abrufen",
+        "cannot_retrieve_configuration": "Kann Konfiguration nicht abrufen"
     }
 }
