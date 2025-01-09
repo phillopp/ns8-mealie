@@ -24,9 +24,9 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/mealie-app.pid \
     --volume mealie-data:/app/data/:Z \
     --env-file %S/state/environment \
     --env 'DB_ENGINE=postgres' \
-    --env 'POSTGRES_USER=127.0.0.1' \
+    --env 'POSTGRES_USER=postgres' \
     --env 'POSTGRES_PASSWORD=Nethesis,1234' \
-    --env 'POSTGRES_SERVER=postgres' \
+    --env 'POSTGRES_SERVER=127.0.0.1' \
     --env 'POSTGRES_PORT=5432' \
     --env 'POSTGRES_DB=mealie' \
     ${MEALIE_IMAGE}
