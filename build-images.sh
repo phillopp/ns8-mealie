@@ -45,7 +45,7 @@ buildah config --entrypoint=/ \
     --label="org.nethserver.authorizations=traefik@node:routeadm" \
     --label="org.nethserver.tcp-ports-demand=1" \
     --label="org.nethserver.rootfull=0" \
-    --label="org.nethserver.images=docker.io/postgres:15.10-alpine3.19 ghcr.io/mealie-recipes/mealie:v2.8.0" \
+    --label="org.nethserver.images=docker.io/postgres:16-alpine ghcr.io/mealie-recipes/mealie:v3.0.0" \
     "${container}"
 # Commit the image
 buildah commit "${container}" "${repobase}/${reponame}"
