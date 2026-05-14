@@ -22,7 +22,7 @@
       "managerFilePatterns": ["/build-images.sh/"],
       "matchStrings": ["ghcr\\.io/mealie-recipes/mealie:(?<currentValue>[-0-9\\.a-z]+)"],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mealie"
+      "depNameTemplate": "mealie-recipes/mealie"
     }
   ],
   "packageRules": [
