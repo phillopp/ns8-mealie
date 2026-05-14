@@ -16,6 +16,13 @@
       "matchStrings": ["docker\\.io/postgres:(?<currentValue>[-0-9\\.a-z]+)"],
       "datasourceTemplate": "docker",
       "depNameTemplate": "postgres"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/build-images.sh/"],
+      "matchStrings": ["ghcr\\.io/mealie-recipes/mealie:(?<currentValue>[-0-9\\.a-z]+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "mealie"
     }
   ],
   "packageRules": [
