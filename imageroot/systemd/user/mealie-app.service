@@ -25,6 +25,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/mealie-app.pid \
     --pod-id-file %t/mealie.pod-id --replace -d --name  mealie-app \
     --volume mealie-data:/app/data/:Z \
     --env-file %S/state/environment \
+    --env-file %S/state/smarthost.env \
     --env 'DB_ENGINE=postgres' \
     --env 'POSTGRES_USER=postgres' \
     --env 'POSTGRES_PASSWORD=Nethesis,1234' \

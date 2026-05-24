@@ -19,14 +19,21 @@ envfile = "smarthost.env"
 # Using .tmp suffix: do not overwrite the target file until the new one is
 # saved to disk:
 with open(envfile + ".tmp", "w") as efp:
+    authStragegy = 'NONE'
+    if smtp_settings['encrypt_smtp'] == 'tls':
+        authStragegy = 'TLS'
+    elif smtp_settings['encrypt_smtp'] == 'starttls':
+        authStragegy = 'SSL'
+
     # HINT for mealie: adjust variable names as needed
-    print(f"SMTP_ENABLED={'1' if smtp_settings['enabled'] else ''}", file=efp)
-    print(f"SMTP_HOST={smtp_settings['host']}", file=efp)
+    # print(f"SMTP_ENABLED={'1' if smtp_settings['enabled'] else ''}", file=efp)
+    print(f"SMTP_HOST={smtp_settings['host'] if smtp_settings['enabled'] else ''}", file=efp)
     print(f"SMTP_PORT={smtp_settings['port']}", file=efp)
-    print(f"SMTP_USERNAME={smtp_settings['username']}", file=efp)
+    print("SMTP_FROM_NAME=Mealie", file=efp)
+    print(f"SMTP_AUTH_STRATEGY={authStragegy}", file=efp)
+    print(f"SMTP_FROM_EMAIL=mealie@{os.getenv('TRAEFIK_HOST', 'localhost')}", file=efp)
+    print(f"SMTP_USER={smtp_settings['username']}", file=efp)
     print(f"SMTP_PASSWORD={smtp_settings['password']}", file=efp)
-    print(f"SMTP_ENCRYPTION={smtp_settings['encrypt_smtp']}", file=efp)
-    print(f"SMTP_TLSVERIFY={'1' if smtp_settings['tls_verify'] else ''}", file=efp)
 
 # Commit changes by replacing the existing envfile:
 os.replace(envfile + ".tmp", envfile)
