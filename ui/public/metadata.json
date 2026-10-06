@@ -1,7 +1,8 @@
 {
   "name": "mealie",
   "description": {
-    "en": "Mealie Integration for NethServer 8"
+    "en": "Mealie Integration for NethServer 8",
+    "de": "Mealie Integration für NethServer 8"
   },
   "categories": [],
   "authors": [
