@@ -3,7 +3,6 @@
   "extends": [
     "local>NethServer/.github:ns8-automerge"
   ],
-  "ignorePaths": ["**/ui/**", "**/.devcontainer/**"],
   "customManagers": [
     {
       "customType": "regex",
