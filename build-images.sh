@@ -21,7 +21,8 @@ container=$(buildah from scratch)
 # Reuse existing nodebuilder-mealie container, to speed up builds
 if ! buildah containers --format "{{.ContainerName}}" | grep -q nodebuilder-mealie; then
     echo "Pulling NodeJS runtime..."
-    buildah from --name nodebuilder-mealie -v "${PWD}:/usr/src:Z" docker.io/library/node:lts
+    buildah from --name nodebuilder-mealie -v "${PWD}:/usr/src:Z" docker.io/library/node:26.13.0-slim
+    buildah run nodebuilder-mealie sh -c "npm install -g corepack@${corepack_version} && corepack enable"
 fi
 
 echo "Build static UI files with node..."
